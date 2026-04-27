@@ -1,12 +1,12 @@
-/* 基礎設定 */
+/* 基礎設定 - 全綠色調體系 */
 :root {
-    --primary-blue: #003366;    /* 專業商務藍 */
-    --accent-green: #2D5A27;    /* 永續森林綠 */
-    --bg-light: #f8f9fa;
-    --text-dark: #2d3436;
-    --text-gray: #636e72;
-    --white: #ffffff;
-    --transition: all 0.3s ease;
+    --primary-green: #4A6755;    /* 森林深綠：用於標題與導航 */
+    --accent-sage: #88A096;      /* 鼠尾草綠：用於重音與按鈕 */
+    --bg-light-green: #F0F4F2;   /* 薄荷淺綠：主要網頁背景 */
+    --bg-white-green: #F7FAF9;   /* 近白綠色：用於卡片或交替背景 */
+    --text-main: #2F3E36;        /* 深灰綠色：文字主色 */
+    --text-soft: #5A6660;        /* 柔和綠色：次要文字 */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -16,14 +16,14 @@
 }
 
 html {
-    scroll-behavior: smooth; /* 平滑滾動 */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Inter', 'Noto Sans TC', sans-serif;
     line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--white);
+    color: var(--text-main);
+    background-color: var(--bg-light-green); /* 全局背景綠色 */
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
     padding: 0 2rem;
 }
 
-/* 導航列 */
+/* 導航列 - 透明感綠色 */
 .navbar {
     height: 70px;
     display: flex;
@@ -40,13 +40,11 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(240, 244, 242, 0.85); /* 帶有背景綠色的半透明 */
+    backdrop-filter: blur(15px);
     z-index: 1000;
+    border-bottom: 1px solid rgba(74, 103, 85, 0.1);
     transition: var(--transition);
-}
-
-.navbar.scrolled {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .navbar .container {
@@ -58,9 +56,10 @@ body {
 
 .logo {
     font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary-blue);
+    font-size: 1.3rem;
+    color: var(--primary-green);
     text-decoration: none;
+    letter-spacing: 1px;
 }
 
 .nav-links {
@@ -74,42 +73,43 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 600;
+    color: var(--text-main);
+    font-weight: 500;
     transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--accent-green);
+    color: var(--accent-sage);
 }
 
-/* Hero Section */
+/* Hero Section - 綠色漸層 */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background: linear-gradient(135deg, #E0EAE5 0%, #C8D6D0 100%);
     padding-top: 70px;
 }
 
 .hero-name {
-    font-size: 3rem;
-    color: var(--primary-blue);
+    font-size: 3.5rem;
+    color: var(--primary-green);
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .hero-tagline {
     font-size: 1.25rem;
-    color: var(--text-gray);
+    color: var(--text-soft);
     max-width: 600px;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-/* 按鈕樣式 */
+/* 按鈕 - 綠色系 */
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 5px;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* 圓角更具親和力 */
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
@@ -117,33 +117,40 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: var(--primary-green);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(74, 103, 85, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: #002244;
+    background-color: #3D5546;
+    transform: translateY(-2px);
 }
 
 .btn-outline {
-    border: 2px solid var(--primary-blue);
-    color: var(--primary-blue);
+    border: 2px solid var(--primary-green);
+    color: var(--primary-green);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-blue);
-    color: var(--white);
+    background-color: var(--primary-green);
+    color: #ffffff;
 }
 
-/* Section 通用樣式 */
+/* Section 通用樣式 - 綠色層次 */
 section {
-    padding: 5rem 0;
+    padding: 7rem 0;
+}
+
+/* 交替背景色 */
+section:nth-child(even) {
+    background-color: var(--bg-white-green);
 }
 
 .section-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: var(--primary-blue);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--primary-green);
     position: relative;
     padding-bottom: 0.5rem;
 }
@@ -154,24 +161,65 @@ section {
     left: 0;
     bottom: 0;
     width: 50px;
-    height: 4px;
-    background-color: var(--accent-green);
+    height: 5px;
+    background-color: var(--accent-sage);
+    border-radius: 10px;
 }
 
-/* About Section */
-.about {
-    background-color: var(--white);
+/* 網格與卡片 */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
 }
 
-.about-content p {
+.card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(74, 103, 85, 0.05);
+    box-shadow: 0 10px 30px rgba(74, 103, 85, 0.03);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(74, 103, 85, 0.1);
+    border-color: var(--accent-sage);
+}
+
+.skill-icon {
+    font-size: 2.8rem;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: var(--text-gray);
 }
 
-/* Contact Section */
+.card h3 {
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.badge {
+    background-color: #F1F5F3;
+    color: var(--primary-green);
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge-special {
+    background-color: var(--accent-sage);
+    color: #ffffff;
+}
+
+/* 關於我區塊 */
+.about {
+    background-color: #EBF0ED !important;
+}
+
+/* 聯繫區塊 */
 .contact {
-    background-color: var(--bg-light);
+    background-color: var(--bg-light-green);
     text-align: center;
 }
 
@@ -183,178 +231,36 @@ section {
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     margin-top: 2rem;
 }
 
 .contact-item {
     text-decoration: none;
-    color: var(--primary-blue);
-    font-weight: 600;
-    font-size: 1.2rem;
-    border-bottom: 2px solid transparent;
+    color: var(--primary-green);
+    font-weight: 700;
+    font-size: 1.4rem;
     transition: var(--transition);
+    border-bottom: 2px solid transparent;
 }
 
 .contact-item:hover {
-    color: var(--accent-green);
-    border-bottom-color: var(--accent-green);
+    color: var(--accent-sage);
+    border-bottom-color: var(--accent-sage);
 }
 
 /* Footer */
 .footer {
-    padding: 2rem 0;
+    padding: 3rem 0;
     text-align: center;
+    background-color: #DDE5E1;
+    color: var(--text-soft);
     font-size: 0.9rem;
-    color: var(--text-gray);
-    border-top: 1px solid #eee;
 }
 
-/* 響應式設計 (Mobile) */
+/* Mobile */
 @media (max-width: 768px) {
-    .hero-name {
-        font-size: 2rem;
-    }
-    
-    .nav-links {
-        display: none; /* 第一版 MVP 先隱藏手機版選單，保持簡潔 */
-    }
-
-    .hero-btns {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .btn {
-        margin-right: 0;
-        text-align: center;
-    }
-
-    .contact-links {
-        flex-direction: column;
-        gap: 1rem;
-    }
-}
-/* --- 擴充樣式：網格與卡片 --- */
-
-/* 通用網格系統：自動適應螢幕寬度 */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-/* 卡片基礎樣式 */
-.card {
-    background: var(--white);
-    border: 1px solid #eee;
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    border-color: var(--accent-green);
-}/* 技能圖示樣式 */
-.skill-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-/* 強化卡片內的標題與文字細節 */
-.card h3 {
-    color: var(--primary-blue);
-    margin-bottom: 0.8rem;
-    font-size: 1.25rem;
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: var(--text-gray);
-    flex-grow: 1; /* 確保描述文字撐開空間，讓底部的 Badges 對齊 */
-}
-
-/* 標籤 (Badges)：用於 Courses 或 Skills */
-.badge-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.badge {
-    background-color: #e9ecef;
-    color: var(--primary-blue);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-.badge-special {
-    background-color: var(--accent-green);
-    color: var(--white);
-}
-
-/* 專案圖片佔位符 (若暫時沒照片) */
-.project-img {
-    width: 100%;
-    height: 180px;
-    background-color: #eee;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ccc;
-}/* 修改後的 :root 設定 */
-:root {
-    --primary-green: #5D7A66;    /* 核心森林綠：專業且具永續感 */
-    --pale-green: #E9EDEA;       /* 背景淡綠色：讓視覺更柔和 */
-    --accent-sage: #88A096;      /* 鼠尾草綠：用於次要標籤或圖示 */
-    --bg-light: #FCFAF9;         /* 溫暖的米白背景 */
-    --text-dark: #2C3E50;
-    --text-gray: #5A6660;
-    --white: #ffffff;
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-/* 調整 Hero 背景為淡綠色漸層 */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(135deg, #E9EDEA 0%, #D4DBD5 100%);
-    padding-top: 70px;
-}
-
-/* 修改標題顏色與下劃線 */
-.hero-name {
-    font-size: 3.5rem; /* 稍微放大讓重點更明確 */
-    color: var(--primary-green);
-    margin-bottom: 1rem;
-}
-
-.section-title::after {
-    background-color: var(--accent-sage);
-}
-
-/* 提升卡片質感 */
-.card {
-    background: var(--white);
-    border: none; /* 移除邊框，改用陰影更顯質感 */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    padding: 2rem;
-    border-radius: 12px;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(93, 122, 102, 0.15); /* 帶點綠色的陰影 */
+    .hero-name { font-size: 2.5rem; }
+    .nav-links { display: none; }
+    .contact-links { flex-direction: column; gap: 1.5rem; }
 }
