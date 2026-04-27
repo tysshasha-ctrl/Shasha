@@ -313,4 +313,48 @@ section {
     align-items: center;
     justify-content: center;
     color: #ccc;
+}/* 修改後的 :root 設定 */
+:root {
+    --primary-green: #5D7A66;    /* 核心森林綠：專業且具永續感 */
+    --pale-green: #E9EDEA;       /* 背景淡綠色：讓視覺更柔和 */
+    --accent-sage: #88A096;      /* 鼠尾草綠：用於次要標籤或圖示 */
+    --bg-light: #FCFAF9;         /* 溫暖的米白背景 */
+    --text-dark: #2C3E50;
+    --text-gray: #5A6660;
+    --white: #ffffff;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* 調整 Hero 背景為淡綠色漸層 */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #E9EDEA 0%, #D4DBD5 100%);
+    padding-top: 70px;
+}
+
+/* 修改標題顏色與下劃線 */
+.hero-name {
+    font-size: 3.5rem; /* 稍微放大讓重點更明確 */
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+}
+
+.section-title::after {
+    background-color: var(--accent-sage);
+}
+
+/* 提升卡片質感 */
+.card {
+    background: var(--white);
+    border: none; /* 移除邊框，改用陰影更顯質感 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(93, 122, 102, 0.15); /* 帶點綠色的陰影 */
 }
