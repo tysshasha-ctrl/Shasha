@@ -1,12 +1,15 @@
-/* 基礎設定 - 全綠色調體系 */
+/* ==========================================================================
+   基礎設定 - 選項三：優雅大地色系 (Eco-Luxury & Professional)
+   ========================================================================== */
 :root {
-    --primary-green: #4A6755;    /* 森林深綠：用於標題與導航 */
-    --accent-sage: #88A096;      /* 鼠尾草綠：用於重音與按鈕 */
-    --bg-light-green: #F0F4F2;   /* 薄荷淺綠：主要網頁背景 */
-    --bg-white-green: #F7FAF9;   /* 近白綠色：用於卡片或交替背景 */
-    --text-main: #2F3E36;        /* 深灰綠色：文字主色 */
-    --text-soft: #5A6660;        /* 柔和綠色：次要文字 */
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --primary-earth: #354A3E;    /* 深泥綠：用於主要標題、導航列文字、強調色 */
+    --accent-olive: #708266;     /* 溫潤橄欖綠：用於按鈕、重點 Badge */
+    --bg-warm-oat: #F5F2EB;      /* 溫暖燕麥色：主要網頁全局背景（極舒適不刺眼） */
+    --bg-card-white: #FFFFFF;    /* 純白：用於卡片，與燕麥背景形成高級層次 */
+    --bg-alt-sand: #EAE5DA;      /* 柔沙色：用於交替區塊背景與頁尾 */
+    --text-main: #2C3531;        /* 炭深綠黑：高品質的主文字顏色 */
+    --text-soft: #606864;        /* 柔和霧綠：次要敘述文字 */
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 更流暢的現代微動態 */
 }
 
 * {
@@ -23,7 +26,8 @@ body {
     font-family: 'Inter', 'Noto Sans TC', sans-serif;
     line-height: 1.6;
     color: var(--text-main);
-    background-color: var(--bg-light-green); /* 全局背景綠色 */
+    background-color: var(--bg-warm-oat); /* 全局使用舒服的燕麥暖調 */
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -32,7 +36,9 @@ body {
     padding: 0 2rem;
 }
 
-/* 導航列 - 透明感綠色 */
+/* ==========================================================================
+   導航列 - 結合 JS .scrolled 效果
+   ========================================================================== */
 .navbar {
     height: 70px;
     display: flex;
@@ -40,11 +46,19 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(240, 244, 242, 0.85); /* 帶有背景綠色的半透明 */
-    backdrop-filter: blur(15px);
+    background: rgba(245, 242, 235, 0.8); /* 燕麥色半透明 */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
-    border-bottom: 1px solid rgba(74, 103, 85, 0.1);
+    border-bottom: 1px solid rgba(53, 74, 62, 0.05);
     transition: var(--transition);
+}
+
+/* 當 main.js 偵測到捲動時觸發的進階樣式 */
+.navbar.scrolled {
+    background: rgba(245, 242, 235, 0.95);
+    box-shadow: 0 4px 20px rgba(53, 74, 62, 0.08); /* 輕柔的大地色系陰影 */
+    height: 65px; /* 捲動時微微縮小，增加精緻感 */
 }
 
 .navbar .container {
@@ -57,9 +71,9 @@ body {
 .logo {
     font-weight: 700;
     font-size: 1.3rem;
-    color: var(--primary-green);
+    color: var(--primary-earth);
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -75,84 +89,113 @@ body {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+/* 導覽列極簡下底線 hover 效果 */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-olive);
     transition: var(--transition);
 }
 
 .nav-links a:hover {
-    color: var(--accent-sage);
+    color: var(--accent-olive);
 }
 
-/* Hero Section - 綠色漸層 */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Hero 主視覺區
+   ========================================================================== */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, #E0EAE5 0%, #C8D6D0 100%);
+    background: linear-gradient(135deg, #ECE7DC 0%, #DCD6C8 100%); /* 大地色系優雅漸層 */
     padding-top: 70px;
 }
 
 .hero-name {
-    font-size: 3.5rem;
-    color: var(--primary-green);
-    margin-bottom: 1rem;
+    font-size: 3.8rem;
+    color: var(--primary-earth);
+    margin-bottom: 1.2rem;
     font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .hero-tagline {
     font-size: 1.25rem;
     color: var(--text-soft);
-    max-width: 600px;
-    margin-bottom: 2.5rem;
+    max-width: 650px;
+    margin-bottom: 2.8rem;
+    font-weight: 400;
 }
 
-/* 按鈕 - 綠色系 */
+/* ==========================================================================
+   按鈕樣式
+   ========================================================================== */
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    border-radius: 50px; /* 圓角更具親和力 */
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.95rem;
     transition: var(--transition);
     margin-right: 1rem;
 }
 
 .btn-primary {
-    background-color: var(--primary-green);
+    background-color: var(--primary-earth);
     color: #ffffff;
-    box-shadow: 0 4px 15px rgba(74, 103, 85, 0.2);
+    box-shadow: 0 4px 15px rgba(53, 74, 62, 0.15);
 }
 
 .btn-primary:hover {
-    background-color: #3D5546;
-    transform: translateY(-2px);
+    background-color: var(--accent-olive);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(112, 130, 102, 0.25);
 }
 
 .btn-outline {
-    border: 2px solid var(--primary-green);
-    color: var(--primary-green);
+    border: 2px solid var(--primary-earth);
+    color: var(--primary-earth);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-green);
+    background-color: var(--primary-earth);
     color: #ffffff;
+    transform: translateY(-3px);
 }
 
-/* Section 通用樣式 - 綠色層次 */
+/* ==========================================================================
+   Section 通用排版與交替背景
+   ========================================================================== */
 section {
-    padding: 7rem 0;
+    padding: 7.5rem 0;
 }
 
-/* 交替背景色 */
+/* 巧妙交替燕麥色與柔沙色，豐富頁面層次 */
 section:nth-child(even) {
-    background-color: var(--bg-white-green);
+    background-color: var(--bg-alt-sand);
 }
 
 .section-title {
     font-size: 2.2rem;
-    margin-bottom: 3rem;
-    color: var(--primary-green);
+    margin-bottom: 3.5rem;
+    color: var(--primary-earth);
     position: relative;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.6rem;
 }
 
 .section-title::after {
@@ -160,13 +203,15 @@ section:nth-child(even) {
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 50px;
-    height: 5px;
-    background-color: var(--accent-sage);
+    width: 40px;
+    height: 4px;
+    background-color: var(--accent-olive);
     border-radius: 10px;
 }
 
-/* 網格與卡片 */
+/* ==========================================================================
+   網格與高品質卡片設計
+   ========================================================================== */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -174,52 +219,97 @@ section:nth-child(even) {
 }
 
 .card {
-    background: #ffffff;
+    background: var(--bg-card-white);
     padding: 2.5rem;
     border-radius: 16px;
-    border: 1px solid rgba(74, 103, 85, 0.05);
-    box-shadow: 0 10px 30px rgba(74, 103, 85, 0.03);
+    border: 1px solid rgba(53, 74, 62, 0.03);
+    box-shadow: 0 8px 30px rgba(53, 74, 62, 0.02); /* 極輕微的立體陰影 */
     transition: var(--transition);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(74, 103, 85, 0.1);
-    border-color: var(--accent-sage);
-}
-
-.skill-icon {
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(53, 74, 62, 0.08);
+    border-color: rgba(112, 130, 102, 0.3);
 }
 
 .card h3 {
-    color: var(--primary-green);
+    color: var(--primary-earth);
     margin-bottom: 1rem;
+    font-size: 1.35rem;
+}
+
+.card p {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+}
+
+.skill-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/* ==========================================================================
+   Badges 標籤群組
+   ========================================================================== */
+.badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
 }
 
 .badge {
-    background-color: #F1F5F3;
-    color: var(--primary-green);
-    padding: 0.4rem 1rem;
-    border-radius: 8px;
-    font-size: 0.85rem;
+    background-color: #F4F1EA; /* 淺大地色背景 */
+    color: var(--primary-earth);
+    padding: 0.4rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
     font-weight: 600;
+    letter-spacing: 0.3px;
 }
 
 .badge-special {
-    background-color: var(--accent-sage);
+    background-color: var(--accent-olive);
     color: #ffffff;
 }
 
-/* 關於我區塊 */
-.about {
-    background-color: #EBF0ED !important;
+/* ==========================================================================
+   精選專案卡片優化 (解決圖文擠壓問題)
+   ========================================================================== */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0; /* 讓圖片能填滿頂部 */
 }
 
-/* 聯繫區塊 */
+.project-img {
+    background-color: #E6E1D3;
+    color: var(--primary-earth);
+    padding: 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(53, 74, 62, 0.05);
+}
+
+.project-body {
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
+}
+
+/* ==========================================================================
+   關於我與聯絡區塊
+   ========================================================================== */
+.about .about-content p {
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+}
+
 .contact {
-    background-color: var(--bg-light-green);
     text-align: center;
 }
 
@@ -231,36 +321,58 @@ section:nth-child(even) {
 .contact-links {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-    margin-top: 2rem;
+    gap: 4rem;
+    margin-top: 3rem;
 }
 
 .contact-item {
     text-decoration: none;
-    color: var(--primary-green);
+    color: var(--primary-earth);
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     transition: var(--transition);
+    padding-bottom: 0.3rem;
     border-bottom: 2px solid transparent;
 }
 
 .contact-item:hover {
-    color: var(--accent-sage);
-    border-bottom-color: var(--accent-sage);
+    color: var(--accent-olive);
+    border-bottom-color: var(--accent-olive);
 }
 
-/* Footer */
+/* ==========================================================================
+   Footer 頁尾
+   ========================================================================== */
 .footer {
     padding: 3rem 0;
     text-align: center;
-    background-color: #DDE5E1;
+    background-color: #E2DDD2; /* 沉穩沙土色 */
     color: var(--text-soft);
     font-size: 0.9rem;
+    border-top: 1px solid rgba(53, 74, 62, 0.05);
 }
 
-/* Mobile */
+/* ==========================================================================
+   RWD 響應式手機板優化
+   ========================================================================== */
 @media (max-width: 768px) {
-    .hero-name { font-size: 2.5rem; }
-    .nav-links { display: none; }
-    .contact-links { flex-direction: column; gap: 1.5rem; }
+    section {
+        padding: 5rem 0;
+    }
+    .hero-name { 
+        font-size: 2.8rem; 
+    }
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    .nav-links { 
+        display: none; /* 未來可擴充漢堡選單 */
+    }
+    .contact-links { 
+        flex-direction: column; 
+        gap: 2rem; 
+    }
+    .card {
+        padding: 2rem;
+    }
 }
